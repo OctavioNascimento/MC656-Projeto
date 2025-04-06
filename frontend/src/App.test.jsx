@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
-import App from './src/App'
+import App from './App'
 
 test('renderiza o cabeçalho com Vite + React', () => {
   render(<App />)
-  expect(screen.getByText(/Vite \+ React/i)).toBeInTheDocument()
+  expect(screen.getByText(/UNIBIKE/i)).toBeInTheDocument()
 })
