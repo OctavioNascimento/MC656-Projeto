@@ -1,0 +1,45 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛠️ Checkout do código
+        uses: actions/checkout@v3
+
+      - name: ☕ Instalar Java e Maven
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
+
+      # - name: 🔨 Rodar os testes
+      #   run: mvn test
+
+      # - name: 🔨 Build com Maven
+      #   run: |
+      #     cd backend
+      #     mvn clean package
+      - name: Build com Maven (sem testes por enquanto)
+        run: |
+          cd backend
+          mvn clean package -DskipTests
+
+      - name: 📦 Armazenar artefato (JAR)
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-jar
+          path: target/*.jar
