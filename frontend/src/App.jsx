@@ -1,14 +1,11 @@
-import './App.css'
-import Button from './components/Button' 
-
+import "./App.css";
+import Login from './pages/Login'
 function App() {
-
   return (
     <>
-      <h1>UNIBIKE</h1>
-      <Button value="LOGIN"/>
+      <Login />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
