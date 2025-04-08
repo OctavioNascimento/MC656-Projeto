@@ -3,11 +3,10 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - main
       - develop
+      - feature/**
   pull_request:
     branches:
-      - main
       - develop
 
 
@@ -41,3 +40,13 @@ jobs:
         with:
           name: backend-jar
           path: target/*.jar
+
+
+      # Build do frontend
+      - name: 🧩 Instalar dependências do frontend
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: ✅ Rodar os testes do frontend
+        working-directory: ./frontend
+        run: npm test -- --ci --passWithNoTests
