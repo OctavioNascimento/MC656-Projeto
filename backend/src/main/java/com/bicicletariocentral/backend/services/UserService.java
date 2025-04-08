@@ -31,7 +31,7 @@ public class UserService {
     }
 
     public boolean emailAlreadyUsed(String email){
-        return userRepository.existsByEmail(email);
+        return !userRepository.findByEmail(email).isEmpty();
     }
     
     private UserDTO convertToDTO(User user) {

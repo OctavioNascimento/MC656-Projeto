@@ -1,12 +1,10 @@
 package com.bicicletariocentral.backend.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.Date;
 
-@Getter
-@Setter
+import lombok.Data;
+
+@Data
 public class UserDTO {
     private String email;
     private String username;

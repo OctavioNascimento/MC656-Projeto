@@ -26,17 +26,13 @@ jobs:
           java-version: '17'
           cache: 'maven'
 
-      # - name: 🔨 Rodar os testes
-      #   run: mvn test
+      - name: 🔨 Rodar os testes
+        run: mvn test
 
-      # - name: 🔨 Build com Maven
-      #   run: |
-      #     cd backend
-      #     mvn clean package
-      - name: Build com Maven (sem testes por enquanto)
+      - name: 🔨 Build com Maven
         run: |
           cd backend
-          mvn clean package -DskipTests
+          mvn clean package
 
       - name: 📦 Armazenar artefato (JAR)
         uses: actions/upload-artifact@v4
