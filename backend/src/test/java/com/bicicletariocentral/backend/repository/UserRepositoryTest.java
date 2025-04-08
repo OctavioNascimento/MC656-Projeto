@@ -11,27 +11,27 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import com.bicicletariocentral.backend.model.User;
 
-// @DataJpaTest
-// @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
-// public class UserRepositoryTest {
+@DataJpaTest
+@AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
+public class UserRepositoryTest {
 
-//     @Autowired
-//     private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-//     @Test
-//     void testFindByEmail_whenTheresAnUserWithThatEmail_ReturnsThatUser() {
-//         User standardUser = new User();
-//         standardUser.setEmail("user@mail.com");
-//         userRepository.save(standardUser);
+    @Test
+    void testFindByEmail_whenTheresAnUserWithThatEmail_ReturnsThatUser() {
+        User standardUser = new User();
+        standardUser.setEmail("user@mail.com");
+        userRepository.save(standardUser);
 
-//         Optional<User> foundUser = userRepository.findByEmail("user@mail.com");
-//         Assertions.assertFalse(foundUser.isEmpty());
-//         Assertions.assertEquals("user@mail.com", foundUser.get().getEmail());
-//     }
+        Optional<User> foundUser = userRepository.findByEmail("user@mail.com");
+        Assertions.assertFalse(foundUser.isEmpty());
+        Assertions.assertEquals("user@mail.com", foundUser.get().getEmail());
+    }
 
-//     @Test
-//     void testFindByEmail_whenTheresNoUserWithThatEmail_ReturnsNull() {
-//         Optional<User> foundUser = userRepository.findByEmail("inexistentUser@mail.com");
-//         Assertions.assertTrue(foundUser.isEmpty());
-//     }
-// }
+    @Test
+    void testFindByEmail_whenTheresNoUserWithThatEmail_ReturnsNull() {
+        Optional<User> foundUser = userRepository.findByEmail("inexistentUser@mail.com");
+        Assertions.assertTrue(foundUser.isEmpty());
+    }
+}
