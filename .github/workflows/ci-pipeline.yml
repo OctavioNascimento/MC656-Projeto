@@ -27,7 +27,9 @@ jobs:
           cache: 'maven'
 
       - name: 🔨 Rodar os testes
-        run: mvn test
+        run: |
+          cd backend
+          mvn test
 
       - name: 🔨 Build com Maven
         run: |
