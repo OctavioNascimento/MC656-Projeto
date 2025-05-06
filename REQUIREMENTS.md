@@ -14,8 +14,8 @@ Para levantar os requisitos do sistema, foram utilizadas duas abordagens complem
 
 Artefatos:
 
-* Entrevista \[INSERIR LINK\]  
-* Perguntas do Questionário [FORMS](https://docs.google.com/forms/d/e/1FAIpQLSeRQcyKPFqnpY-IgXjzNFc3VYNZvrNuLtFrYFSOw-rGB-98xw/viewform)
+* Entrevista [Áudio](https://drive.google.com/file/d/1G32U7Qt5QnPy_YFNAO1fL6juaK4Z2QVN/view)  
+* Perguntas do Questionário [Forms](https://docs.google.com/forms/d/e/1FAIpQLSeRQcyKPFqnpY-IgXjzNFc3VYNZvrNuLtFrYFSOw-rGB-98xw/viewform)
 * Dados coletados:  [Dados](https://docs.google.com/spreadsheets/d/14kmSVsC4hAwf595TJ5dRqOlkyThnAUq8kBMgxO37qBo/edit?gid=893485006#gid=893485006)
 
 **Requisitos Funcionais**
