@@ -12,15 +12,15 @@
    Com isso em mente, foram desenvolvidos diagramas C4 dos níveis 1 a 3 como parte do processo, que, alinhados aos requisitos, representam o sistema em diferentes níveis de detalhamento. O diagrama de Nível 3, em particular, demonstra um aplicativo minimamente funcional — ou seja, um aplicativo que permite ao usuário fazer login, solicitar e devolver uma bicicleta. As funcionalidades básicas do aplicativo foram organizadas e categorizadas como componentes do diagrama, conforme detalhado a seguir.
 
 
-  C4 Nível 1:
+
 ![C1](https://github.com/user-attachments/assets/85ab0682-fe56-4640-aacc-3f472aa465fa)
 
 
-  C4 Nível 2:
+  
 ![C2](https://github.com/user-attachments/assets/5269443b-3085-46ad-9821-ae382d9c0db0)
 
 
-  C4 Nível 3:
+  
 ![C4final](https://github.com/user-attachments/assets/b215f4d0-7ab2-44c2-8a47-69c2e3e228d7)
 
 **Descrição dos componentes**
