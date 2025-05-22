@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import Home from './Home'
 
-test('Should render a button with text "LOGIN"', () => {
-     render(<Home />)
-     expect(screen.getByText("PÁGINA INICIAL")).toBeInTheDocument()
+test('Should render a input with a placeholder "Procura"', () => {
+  render(<Home />)
+  expect(screen.getByPlaceholderText('Procura')).toBeInTheDocument();
 })
