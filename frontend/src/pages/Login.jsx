@@ -3,7 +3,7 @@ import Button from "../components/Button";
 
 function Login() {
   return (
-    <div className="h-full flex flex-col relative items-center justify-center">
+    <div className="h-screen flex flex-col relative items-center justify-center">
       <figure className="w-full flex justify-center">
         <img src="/logo-name.png" alt="logo" className="w-50" />
       </figure>
@@ -17,7 +17,7 @@ function Login() {
         />
       </Link>
 
-      <div className="text-[12px] absolute bottom-10">
+      <div className="text-[12px] text-black absolute bottom-3">
         <p className="">
           Gerencie seu usuário e senha única, acessar o Portal da Senha UNICAMP{" "}
           <br />
