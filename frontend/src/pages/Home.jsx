@@ -1,11 +1,8 @@
 import { RiMenu2Line } from "react-icons/ri";
 import { FaCheck, FaUserCircle } from "react-icons/fa";
 import { CiClock2, CiHeart, CiSearch } from "react-icons/ci";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-
+import FilterPill from "../components/FilterPill";
 import logo from "../assets/logo.png";
-
-const position = [-23.55052, -46.633308]; // São Paulo
 
 function Home() {
   return (
@@ -28,22 +25,12 @@ function Home() {
 
         <div className="tags text-black overflow-hidden">
           <ul className="flex mt-2 gap-3 w-full overflow-x-scroll whitespace-nowrap text-[12px]">
-            <li className="flex items-center gap-1 border border-gray-300 p-1 rounded-md ">
-              <CiHeart color="black" />
-              Favoritos
-            </li>
-            <li className="flex items-center gap-1 border border-gray-300 p-1 rounded-md ">
-              <CiClock2 color="black" />
-              Histórico
-            </li>
-            <li className="flex items-center gap-1 border border-gray-300 p-1 rounded-md ">
-              <FaCheck color="black" />
-              Pendências
-            </li>
-            <li className="flex items-center gap-1 border border-gray-300 p-1 rounded-md ">
-              <CiHeart color="black" />
-              Favoritos
-            </li>
+
+            <FilterPill text="Favoritos" icon={<CiHeart color="black" />} />
+            <FilterPill text="Histórico" icon={<CiClock2 color="black" />} />
+            <FilterPill text="Pendências" icon={<FaCheck color="black" />} />
+            <FilterPill text="Favoritos" icon={<CiHeart color="black" />} />
+            
           </ul>
         </div>
       </section>
