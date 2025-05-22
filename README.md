@@ -7,10 +7,20 @@
 
 # **Descrição da Arquitetura do projeto \- Avaliação 4**
 
-  Como a visão do grupo é de criar um aplicativo, a estrutura de micro serviços parece mais adequada uma vez que ela permite que ele seja separado em partes menores e independentes. Com isso, entendemos que será mais fácil e ágil, não apenas de implementar, mas também de propor manutenção do software. Nossa escolha se dá também pela possibilidade de replicação dos diferentes serviços. Além disso, essa estrutura deve permitir mais independência entre partes, o que minimiza a chance de cair todo o aplicativo quando algum micro serviço cair.
+   No projeto proposto, o grupo se dispôs a desenvolver um aplicativo relacionado à mobilidade urbana no campus. Para organizar melhor a estrutura do sistema, foi adotada a arquitetura em camadas, realizando uma separação entre front-end e back-end. Essa divisão facilita o desenvolvimento independente de cada parte da aplicação. No back-end (aplicação), foi aplicada a arquitetura de microsserviços, permitindo dividir o sistema em partes menores, independentes e especializadas. Essa abordagem agiliza o processo de implementação e manutenção do software, além de oferecer maior escalabilidade e potencial de reutilização dos serviços. Outro fator relevante foi a resiliência proporcionada por essa arquitetura, pois falhas em um serviço específico não comprometem o funcionamento do sistema como um todo. No front-end (camada de aplicação), optamos por utilizar o framework React, que facilita a construção de interfaces de usuário.
   
-  Com isso em mente, foi proposto um diagrama C4-Nível 3 que, alinhado aos requisitos, demonstrasse um aplicativo minimamente funcional. Isto é, um aplicativo em que você consegue fazer login, pedir e devolver um bike. Categorizamos as funcionalidades básicas do aplicativo de forma a serem componentes do diagrama, conforme segue abaixo.
-  
+   Com isso em mente, foram desenvolvidos diagramas C4 dos níveis 1 a 3 como parte do processo, que, alinhados aos requisitos, representam o sistema em diferentes níveis de detalhamento. O diagrama de Nível 3, em particular, demonstra um aplicativo minimamente funcional — ou seja, um aplicativo que permite ao usuário fazer login, solicitar e devolver uma bicicleta. As funcionalidades básicas do aplicativo foram organizadas e categorizadas como componentes do diagrama, conforme detalhado a seguir.
+
+
+  C4 Nível 1:
+![C1](https://github.com/user-attachments/assets/85ab0682-fe56-4640-aacc-3f472aa465fa)
+
+
+  C4 Nível 2:
+![C2](https://github.com/user-attachments/assets/5269443b-3085-46ad-9821-ae382d9c0db0)
+
+
+  C4 Nível 3:
 ![C4final](https://github.com/user-attachments/assets/b215f4d0-7ab2-44c2-8a47-69c2e3e228d7)
 
 **Descrição dos componentes**
