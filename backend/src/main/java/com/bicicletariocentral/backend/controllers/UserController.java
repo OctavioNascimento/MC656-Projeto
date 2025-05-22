@@ -49,4 +49,8 @@ public class UserController {
         List<UserDTO> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
     }
+
+    private String getUserDataString(UserDTO user) {
+        return "User: " + user.getUsername() + ", Email: " + user.getEmail();
+    }
 }
