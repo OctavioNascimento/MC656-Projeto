@@ -45,3 +45,27 @@
 * **Controle de devolução**
 
   O usuário solicita a devolução da bicicleta. Inicialmente, ele o faz por meio do escaneamento do QRcode dela e do bicicletário correspondente. Por fim a bike é posta no local sinalizado e o banco de dados do sistema do bicicletário atualizado.
+
+
+
+
+# **Padrões de Projeto**
+
+Para lidar com problemas comuns de implementação e auxiliar na organização e na facilidade de manutenção, o grupo elencou alguns padrões de projeto:
+
+* **Singleton (Padrão Criacional):**
+
+Será utilizado para garantir que exista apenas uma instância do usuário ativo durante a execução do sistema. Essa instância será criada e armazenada no componente principal da aplicação, permitindo que outras partes do sistema acessem e manipulem o estado do usuário de forma centralizada e controlada.
+
+* **Facade (Padrão Estrutural):**
+
+Esse padrão será adotado para encapsular e simplificar interações com subsistemas complexos, como os serviços de autenticação, checagem e liberação de bicicletas. A ideia é fornecer uma interface unificada e mais simples para o front-end interagir com esses processos, ocultando a complexidade das implementações internas.
+
+* **Observer (Padrão Comportamental):**
+
+Será utilizado para permitir que componentes do sistema sejam notificados automaticamente sobre mudanças em determinados estados, como a disponibilidade de bicicletas ou o saldo do usuário. Isso melhora a reatividade da interface e mantém os dados sempre atualizados para o usuário.
+
+* **Mediator (Padrão Comportamental):**
+
+Esse padrão será empregado para coordenar a comunicação entre diferentes componentes de forma centralizada. Em vez de permitir que componentes se comuniquem diretamente entre si, o *Mediator* gerencia essa interação, reduzindo o acoplamento e aumentando a coesão da aplicação. Um exemplo prático de uso será a criação de uma classe mediadora responsável por intermediar a comunicação entre uma classe de tratamento e exibição de dados na interface e uma classe DAO, responsável pelo acesso e modificação de dados no banco. Essa abordagem centraliza a lógica de interação entre as partes, promovendo maior organização interna e complementando a arquitetura de microsserviços definida pelo grupo.
+
