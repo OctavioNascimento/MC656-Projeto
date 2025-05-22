@@ -63,7 +63,7 @@ Esse padrão será adotado para encapsular e simplificar interações com subsis
 
 * **Observer (Padrão Comportamental):**
 
-Será utilizado para permitir que componentes do sistema sejam notificados automaticamente sobre mudanças em determinados estados, como a disponibilidade de bicicletas ou o saldo do usuário. Isso melhora a reatividade da interface e mantém os dados sempre atualizados para o usuário.
+É utilizado para que componentes do sistema sejam notificados automaticamente sobre mudanças em estados relevantes, como o estado de autenticação do usuário ou a disponibilidade de bicicletas. No exemplo do fluxo de login, quando o estado de autenticação é alterado, todos os componentes observadores são notificados para atualizar e compartilhar dados de forma sincronizada, garantindo reatividade e consistência sem acoplamento direto entre eles.
 
 * **Mediator (Padrão Comportamental):**
 
