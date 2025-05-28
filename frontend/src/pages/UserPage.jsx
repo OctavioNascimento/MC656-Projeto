@@ -4,6 +4,7 @@ import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { userInfo } from "../mocks/mocks";
 import TextField from '@mui/material/TextField';
+import { useState } from "react";
 
 // Função para converter "DD/MM/AAAA HH:MM:SS" para objeto Date
 function parseBRDate(dateStr) {
@@ -35,6 +36,15 @@ function HistoryRow({ item }) {
 }
 
 function UserPage() {
+  const itemsPerPage = 5;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(userInfo.travles.length / itemsPerPage);
+  const paginatedData = userInfo.travles.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   return (
     <div className="h-full flex flex-col items-center relative">
       <header className="w-full flex gap-2 items-center justify-around relative mt-3">
@@ -51,7 +61,7 @@ function UserPage() {
       </section>
 
       <section className="my-2 text-black w-3/4">
-        <p className="text-l font-semibold mb-4 text-left pl-4">Informações do usuário</p>
+        <p className="text-l font-semibold mb-4 text-left pl-4">Informações gerais</p>
 
         <div className="flex gap-4">
           <div className="flex-1 p-4 flex flex-col">
@@ -96,22 +106,45 @@ function UserPage() {
       </section>
 
       <section className="my-2 text-black w-3/4">
-        <p className="text-l font-semibold mb-4 text-left pl-4">Viagens do usuário</p>
+        <p className="text-l font-semibold mb-4 text-left pl-4">Histórico de viagens</p>
 
-        <div className="shadow-md rounded-md p-4">
-            <div className="flex border-b pb-2 font-semibold text-gray-600 text-sm">
-                <div className="flex w-full">
-                    <span className="w-1/10">ID</span>
-                    <span className="w-1/4">Início</span>
-                    <span className="w-1/4">Fim</span>
-                    <span className="w-1/4">Duração (min)</span>
-                    <span className="w-1/10">Preço</span>
-                </div>
+        <div className="mb-10">
+            <div className="grid grid-cols-5 text-left font-bold border-b pb-2 mb-2">
+                <span>ID</span>
+                <span>Início</span>
+                <span>Fim</span>
+                <span>Duração (min)</span>
+                <span>Preço</span>
             </div>
 
-            {userInfo.travles.map((item) => (
-                <HistoryRow key={item.id} item={item} />
+            {paginatedData.map((item) => (
+                <div key={item.id} className="grid grid-cols-5 text-left mb-2">
+                <span>{item.travleId}</span>
+                <span>{item.startedAt}</span>
+                <span>{item.endedAt}</span>
+                <span>{getDurationInMinutes(item.startedAt, item.endedAt)} min</span>
+                <span>R$ {item.price.toFixed(2)}</span>
+                </div>
             ))}
+
+            {/* Paginação */}
+            <div className="flex justify-between items-center mt-6">
+                <button
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                className="px-3 py-1 bg-blue-500 text-white rounded disabled:opacity-50"
+                >
+                Anterior
+                </button>
+                <span>Página {currentPage} de {totalPages}</span>
+                <button
+                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                className="px-3 py-1 bg-blue-500 text-white rounded disabled:opacity-50"
+                >
+                Próxima
+                </button>
+            </div>
         </div>
       </section>
     </div>

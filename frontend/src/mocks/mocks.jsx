@@ -33,6 +33,13 @@ export const userTravles = [
         endedAt: '20/05/2025 19:04:58',
         bikeId: 32,
         price: 13.50
+    },
+    {
+        travleId: 6,
+        startedAt: '20/05/2025 22:02:45',
+        endedAt: '20/05/2025 22:14:18',
+        bikeId: 32,
+        price: 3
     }
 ]
 
