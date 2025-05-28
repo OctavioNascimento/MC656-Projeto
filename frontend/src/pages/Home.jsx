@@ -2,7 +2,9 @@ import { RiMenu2Line } from "react-icons/ri";
 import { FaCheck, FaUserCircle } from "react-icons/fa";
 import { CiClock2, CiHeart, CiSearch } from "react-icons/ci";
 import FilterPill from "../components/FilterPill";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
+import { userInfo } from "../mocks/mocks";
 
 function Home() {
   return (
@@ -10,7 +12,7 @@ function Home() {
       <header className="w-full flex gap-2 items-center justify-around relative mt-3">
         <RiMenu2Line color="black" size="20" />
         <img src={logo} alt="Logo" />
-        <FaUserCircle color="black" size="25" />
+        <Link to={"/user/" + userInfo.id}><FaUserCircle color="black" size="25" /></Link>
       </header>
 
       <section className="overflow-hidden w-3/4 ">

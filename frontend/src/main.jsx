@@ -7,6 +7,7 @@ import App from './App.jsx'
 import Login from './pages/Login.jsx'
 import Home from './pages/Home.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
+import UserPage from './pages/UserPage.jsx'
 
 
 const router = createBrowserRouter([
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: '/home',
     element: <Home />
+  },
+  {
+    path: '/user/:id',
+    element: <UserPage />
   }
 ])
 
