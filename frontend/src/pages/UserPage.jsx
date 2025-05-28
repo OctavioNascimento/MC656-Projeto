@@ -25,7 +25,7 @@ function HistoryRow({ item }) {
   return (
     <div key={item.id} className="flex justify-between items-center border-b py-2 text-sm text-gray-800">
         <div className="flex w-full">
-            <span className="w-1/10">#{item.travleId}</span>
+            <span className="w-1/10">#{item.travelId}</span>
             <span className="w-1/4">{item.startedAt}</span>
             <span className="w-1/4">{item.endedAt}</span>
             <span className="w-1/4">{getDurationInMinutes(item.startedAt, item.endedAt)} min</span>
@@ -39,8 +39,8 @@ function UserPage() {
   const itemsPerPage = 5;
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalPages = Math.ceil(userInfo.travles.length / itemsPerPage);
-  const paginatedData = userInfo.travles.slice(
+  const totalPages = Math.ceil(userInfo.travels.length / itemsPerPage);
+  const paginatedData = userInfo.travels.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
@@ -119,7 +119,7 @@ function UserPage() {
 
             {paginatedData.map((item) => (
                 <div key={item.id} className="grid grid-cols-5 text-left mb-2">
-                <span>{item.travleId}</span>
+                <span>{item.travelId}</span>
                 <span>{item.startedAt}</span>
                 <span>{item.endedAt}</span>
                 <span>{getDurationInMinutes(item.startedAt, item.endedAt)} min</span>
