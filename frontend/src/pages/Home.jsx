@@ -3,17 +3,16 @@ import { FaCheck, FaUserCircle } from "react-icons/fa";
 import { CiClock2, CiHeart, CiSearch } from "react-icons/ci";
 import FilterPill from "../components/FilterPill";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
 import { userInfo } from "../mocks/mocks";
+import Header from "../components/Header";
 
 function Home() {
   return (
     <div className="h-full items-center relative flex flex-col">
-      <header className="w-full flex gap-2 items-center justify-around relative mt-3">
-        <RiMenu2Line color="black" size="20" />
-        <img src={logo} alt="Logo" />
-        <Link to={"/user/" + userInfo.id}><FaUserCircle color="black" size="25" /></Link>
-      </header>
+      <Header
+        leftIcon={<RiMenu2Line color="black" size="20" />}
+        rightIcon={<Link to={"/user/" + userInfo.id}><FaUserCircle color="black" size="25" /></Link>}
+      />
 
       <section className="overflow-hidden w-3/4 ">
         <div className="search bg-blue-50 mt-7 rounded-md items-center flex p-2 gap-4">

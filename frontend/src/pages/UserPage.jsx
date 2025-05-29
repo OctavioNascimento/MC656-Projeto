@@ -1,10 +1,10 @@
 import { RiArrowLeftLine } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
-import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { userInfo } from "../mocks/mocks";
 import TextField from '@mui/material/TextField';
 import { useState } from "react";
+import Header from "../components/Header";
 
 // Função para converter "DD/MM/AAAA HH:MM:SS" para objeto Date
 function parseBRDate(dateStr) {
@@ -47,13 +47,13 @@ function UserPage() {
 
   return (
     <div className="h-full flex flex-col items-center relative">
-      <header className="w-full flex gap-2 items-center justify-around relative mt-3">
-        <Link to={"/home"}>
-          <RiArrowLeftLine color="black" size="20" />
-        </Link>
-        <img src={logo} alt="Logo" />
-        <div></div>
-      </header>
+      <Header 
+        leftIcon={
+          <Link to={"/home"}>
+            <RiArrowLeftLine color="black" size="20" />
+          </Link>
+        }
+      />
 
       <section className="my-12 text-black w-3/4 flex items-center pl-10 pr-10">
             <FaUserCircle color="black" size="200" />
@@ -109,21 +109,31 @@ function UserPage() {
         <p className="text-l font-semibold mb-4 text-left pl-4">Histórico de viagens</p>
 
         <div className="mb-10">
-            <div className="grid grid-cols-5 text-left font-bold border-b pb-2 mb-2">
-                <span>ID</span>
-                <span>Início</span>
-                <span>Fim</span>
-                <span>Duração (min)</span>
-                <span>Preço</span>
+            <div className="flex justify-between font-semibold text-gray-600 border-b pb-2 text-sm">
+                <span className="w-3/20">ID da viagem</span>
+                <span className="w-4/20">Início</span>
+                <span className="w-4/20">Fim</span>
+                <span className="w-2/20">Duração (min)</span>
+                <span className="w-4/20 text-right">Preço</span>
+                <span className="w-3/20 text-center"></span>
             </div>
 
             {paginatedData.map((item) => (
-                <div key={item.id} className="grid grid-cols-5 text-left mb-2">
-                <span>{item.travelId}</span>
-                <span>{item.startedAt}</span>
-                <span>{item.endedAt}</span>
-                <span>{getDurationInMinutes(item.startedAt, item.endedAt)} min</span>
-                <span>R$ {item.price.toFixed(2)}</span>
+                <div key={item.id} className="flex justify-between font-semibold text-gray-600 border-b pb-2 text-sm">
+                  <span className="w-3/20">{item.travelId}</span>
+                  <span className="w-4/20">{item.startedAt}</span>
+                  <span className="w-4/20">{item.endedAt}</span>
+                  <span className="w-2/20">{getDurationInMinutes(item.startedAt, item.endedAt)} min</span>
+                  <span className="w-4/20 text-right">R$ {item.price.toFixed(2)}</span>
+                  <span className="w-3/20 text-center">
+                    <Link 
+                      to={`/evaluate/${item.travelId}`} 
+                      className="ml-4 text-blue-600 hover:underline"
+                    >
+                      Avaliar
+                    </Link>
+                  </span>
+                  
                 </div>
             ))}
 
