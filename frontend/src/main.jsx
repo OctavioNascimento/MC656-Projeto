@@ -7,6 +7,8 @@ import App from './App.jsx'
 import Login from './pages/Login.jsx'
 import Home from './pages/Home.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
+import UserPage from './pages/UserPage.jsx'
+import EvaluatePage from './pages/EvaluatePage.jsx'
 
 
 const router = createBrowserRouter([
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
   {
     path: '/home',
     element: <Home />
+  },
+  {
+    path: '/user/:id',
+    element: <UserPage />
+  },
+  {
+    path: '/evaluate/:travelId',
+    element: <EvaluatePage />
   }
 ])
 

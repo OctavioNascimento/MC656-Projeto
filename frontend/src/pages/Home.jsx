@@ -2,18 +2,19 @@ import { RiMenu2Line } from "react-icons/ri";
 import { FaCheck, FaUserCircle } from "react-icons/fa";
 import { CiClock2, CiHeart, CiSearch } from "react-icons/ci";
 import FilterPill from "../components/FilterPill";
-import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
+import { userInfo } from "../mocks/mocks";
+import Header, { headerIconsSize } from "../components/Header";
 
 function Home() {
   return (
     <div className="h-full items-center relative flex flex-col">
-      <header className="w-full flex gap-2 items-center justify-around relative mt-3">
-        <RiMenu2Line color="black" size="20" />
-        <img src={logo} alt="Logo" />
-        <FaUserCircle color="black" size="25" />
-      </header>
+      <Header
+        leftIcon={<RiMenu2Line color="black" size={headerIconsSize} />}
+        rightIcon={<Link to={"/user/" + userInfo.id}><FaUserCircle color="black" size={headerIconsSize} /></Link>}
+      />
 
-      <section className="overflow-hidden w-3/4 ">
+      <section className="overflow-hidden">
         <div className="search bg-blue-50 mt-7 rounded-md items-center flex p-2 gap-4">
           <CiSearch size="25" color="blue" className="hover:cursor-pointer" />
           <input
