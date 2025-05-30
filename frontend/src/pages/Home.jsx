@@ -4,17 +4,17 @@ import { CiClock2, CiHeart, CiSearch } from "react-icons/ci";
 import FilterPill from "../components/FilterPill";
 import { Link } from "react-router-dom";
 import { userInfo } from "../mocks/mocks";
-import Header from "../components/Header";
+import Header, { headerIconsSize } from "../components/Header";
 
 function Home() {
   return (
     <div className="h-full items-center relative flex flex-col">
       <Header
-        leftIcon={<RiMenu2Line color="black" size="20" />}
-        rightIcon={<Link to={"/user/" + userInfo.id}><FaUserCircle color="black" size="25" /></Link>}
+        leftIcon={<RiMenu2Line color="black" size={headerIconsSize} />}
+        rightIcon={<Link to={"/user/" + userInfo.id}><FaUserCircle color="black" size={headerIconsSize} /></Link>}
       />
 
-      <section className="overflow-hidden w-3/4 ">
+      <section className="overflow-hidden">
         <div className="search bg-blue-50 mt-7 rounded-md items-center flex p-2 gap-4">
           <CiSearch size="25" color="blue" className="hover:cursor-pointer" />
           <input

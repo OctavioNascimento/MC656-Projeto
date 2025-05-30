@@ -1,7 +1,7 @@
 import { RiArrowLeftLine } from "react-icons/ri";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import { getTravelById } from "../mocks/mocks";
-import Header from "../components/Header";
+import Header, { headerIconsSize } from "../components/Header";
 
 function EvaluatePage() {
   const navigate = useNavigate()
@@ -19,7 +19,7 @@ function EvaluatePage() {
                 e.preventDefault();
                 navigate(-1);
                 }}>
-            <RiArrowLeftLine color="black" size="20" />
+            <RiArrowLeftLine color="black" size={headerIconsSize} />
             </Link>
         }
       />

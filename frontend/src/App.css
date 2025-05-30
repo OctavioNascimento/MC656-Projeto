@@ -1,6 +1,9 @@
 html, body {
-  margin: 0;
-  padding: 0;
+  margin: 20px 0 0 0;
+  padding: 0 10px;
+}
+
+header, html, body {
   background-color: #F9F2E7;
 }
 
