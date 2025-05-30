@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   testEnvironment: "jest-environment-jsdom",
   moduleFileExtensions: ["js", "jsx"],
   transform: {

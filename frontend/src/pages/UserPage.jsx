@@ -22,20 +22,6 @@ function getDurationInMinutes(startedAt, endedAt) {
   return Math.round(diffMs / 1000 / 60); // minutos
 }
 
-function HistoryRow({ item }) {
-  return (
-    <div key={item.id} className="flex justify-between items-center border-b py-2 text-sm text-gray-800">
-        <div className="flex w-full">
-            <span className="w-1/10">#{item.travelId}</span>
-            <span className="w-1/4">{item.startedAt}</span>
-            <span className="w-1/4">{item.endedAt}</span>
-            <span className="w-1/4">{getDurationInMinutes(item.startedAt, item.endedAt)} min</span>
-            <span className="w-1/10">R$ {item.price.toFixed(2)}</span>
-        </div>
-    </div>
-  );
-}
-
 function UserPage() {
   const navigate = useNavigate()
   const isMobile = window.innerWidth < 768;
