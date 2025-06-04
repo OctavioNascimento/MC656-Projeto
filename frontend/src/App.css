@@ -1,8 +1,16 @@
+html, body {
+  margin: 20px 0 0 0;
+  padding: 0 10px;
+}
+
+header, html, body {
+  background-color: #F9F2E7;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  text-align: center;
   height: 100vh;
+  display: flex;
   width: 100vw;
+  flex-direction: column;
   background-color: #F9F2E7;
 }
