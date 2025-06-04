@@ -1,26 +1,11 @@
 import { RiArrowLeftLine } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { userInfo } from "../mocks/mocks";
+import { getDurationInMinutes, userInfo } from "../mocks/mocks";
 import TextField from '@mui/material/TextField';
 import { useState } from "react";
 import Header, { headerIconsSize } from "../components/Header";
 import Button from "../components/Button";
-
-// Função para converter "DD/MM/AAAA HH:MM:SS" para objeto Date
-function parseBRDate(dateStr) {
-  const [date, time] = dateStr.split(" ");
-  const [day, month, year] = date.split("/");
-  return new Date(`${year}-${month}-${day}T${time}`);
-}
-
-// Função para calcular duração em minutos
-function getDurationInMinutes(startedAt, endedAt) {
-  const start = parseBRDate(startedAt);
-  const end = parseBRDate(endedAt);
-  const diffMs = end - start;
-  return Math.round(diffMs / 1000 / 60); // minutos
-}
 
 function UserPage() {
   const navigate = useNavigate()
@@ -128,7 +113,7 @@ function UserPage() {
                   <span className="w-2/8 text-right">R$ {item.price.toFixed(2)}</span>
                   <span className="w-2/8 text-center">
                     <Link 
-                      to={`/evaluate/${item.travelId}`} 
+                      to={`/review/${item.travelId}`} 
                       className="ml-4 text-blue-600 hover:underline"
                     >
                       Avaliar
@@ -158,7 +143,7 @@ function UserPage() {
                   <span className="w-4/20 text-right">R$ {item.price.toFixed(2)}</span>
                   <span className="w-3/20 text-center">
                     <Link 
-                      to={`/evaluate/${item.travelId}`} 
+                      to={`/review/${item.travelId}`} 
                       className="ml-4 text-blue-600 hover:underline"
                     >
                       Avaliar

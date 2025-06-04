@@ -60,3 +60,18 @@ export function getTravelById(id){
     }
     return {}
 }
+
+// Função para converter "DD/MM/AAAA HH:MM:SS" para objeto Date
+export function parseBRDate(dateStr) {
+  const [date, time] = dateStr.split(" ");
+  const [day, month, year] = date.split("/");
+  return new Date(`${year}-${month}-${day}T${time}`);
+}
+
+// Função para calcular duração em minutos
+export function getDurationInMinutes(startedAt, endedAt) {
+  const start = parseBRDate(startedAt);
+  const end = parseBRDate(endedAt);
+  const diffMs = end - start;
+  return Math.round(diffMs / 1000 / 60); // minutos
+}

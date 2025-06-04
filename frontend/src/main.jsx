@@ -8,7 +8,7 @@ import Login from './pages/Login.jsx'
 import Home from './pages/Home.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
 import UserPage from './pages/UserPage.jsx'
-import EvaluatePage from './pages/EvaluatePage.jsx'
+import ReviewPage from './pages/ReviewPage.jsx'
 
 
 const router = createBrowserRouter([
@@ -30,8 +30,8 @@ const router = createBrowserRouter([
     element: <UserPage />
   },
   {
-    path: '/evaluate/:travelId',
-    element: <EvaluatePage />
+    path: '/review/:travelId',
+    element: <ReviewPage />
   }
 ])
 
