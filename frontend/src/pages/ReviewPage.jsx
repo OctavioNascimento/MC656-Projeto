@@ -2,10 +2,9 @@ import { RiArrowLeftLine } from "react-icons/ri";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import { getDurationInMinutes, getTravelById } from "../mocks/mocks";
 import Header, { headerIconsSize } from "../components/Header";
-import { FaUserCircle } from "react-icons/fa";
-import { Alert, AlertTitle, Backdrop, Box, CircularProgress, Rating, Snackbar, TextField, Typography } from "@mui/material";
-import Button from "../components/Button";
+import { Alert, Backdrop, Box, CircularProgress, Rating, Snackbar, TextField, Typography } from "@mui/material";
 import { useState } from "react";
+import ContainedButton from "../components/Button";
 
 function ReviewPage() {
   const navigate = useNavigate()
@@ -115,14 +114,11 @@ function ReviewPage() {
             </div>
             
             <div className="flex items-center justify-center m-10">
-              <Button
-                value="Enviar avaliação"
+              <ContainedButton
                 onClick={onClickButton}
-                className="
-              border p-2 w-70 rounded-md 
-              bg-cyan-600 hover:bg-cyan-700 
-              font-bold hover:cursor-pointer active:bg-cyan-700 items-center text-white"
-              />
+              >
+                Enviar avaliação
+              </ContainedButton>
             </div>
           </>
           : <></>

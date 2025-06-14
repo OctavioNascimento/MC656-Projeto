@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Button from "../components/Button";
+import ContainedButton from "../components/Button";
 
 function Login() {
   return (
@@ -8,13 +8,7 @@ function Login() {
         <img src="/logo-name.png" alt="logo" className="w-50" />
       </figure>
       <Link to="/home">
-        <Button
-          value="LOGIN"
-          className="
-        border p-2 w-70 rounded-md 
-        bg-cyan-600 hover:bg-cyan-700 
-        font-bold hover:cursor-pointer active:bg-cyan-700 "
-        />
+        <ContainedButton>LOGIN</ContainedButton>
       </Link>
 
       <div className="text-[12px] text-black absolute bottom-3">

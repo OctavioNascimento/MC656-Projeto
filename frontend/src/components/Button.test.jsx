@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
-import Button from "./Button"
+import ContainedButton from './Button'
 
 test('Should render a button with text "LOGIN"', () => {
-     render(<Button value="LOGIN"/>)
+     render(<ContainedButton>LOGIN</ContainedButton>)
      expect(screen.getByText('LOGIN')).toBeInTheDocument()
 })
