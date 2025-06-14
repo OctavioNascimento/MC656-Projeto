@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { RiMenu2Line } from "react-icons/ri";
-import { FaCheck, FaCog, FaExclamationCircle, FaQuestion, FaSignOutAlt, FaUser, FaUserCircle } from "react-icons/fa";
-import { CiClock2, CiHeart, CiSearch } from "react-icons/ci";
+import { FaCheck, FaCog, FaExclamationCircle, FaIdCard, FaOrcid, FaQrcode, FaQuestion, FaSignOutAlt, FaUser, FaUserCircle } from "react-icons/fa";
 import FilterPill from "../components/FilterPill";
 import { Link } from "react-router-dom";
 import { userInfo } from "../mocks/mocks";
 import Header, { headerIconsSize } from "../components/Header";
 import Drawer from '@mui/material/Drawer';
+import Mapa from '../components/Map';
+import ContainedButton from '../components/Button';
 
 function Home() {
   const [menuState, setMenuState] = React.useState({
@@ -84,25 +85,31 @@ function Home() {
         rightIcon={<FaUserCircle color="black" size={headerIconsSize} onClick={toggleDrawer('right', true)} />}
       />
 
-      <section className="overflow-hidden">
-        <div className="search bg-blue-50 mt-7 rounded-md items-center flex p-2 gap-4">
-          <CiSearch size="25" color="blue" className="hover:cursor-pointer" />
-          <input
-            type="text"
-            placeholder="Procura"
-            className="placeholder-blue-500 placeholder:font-medium outline-0 text-black"
-          />
+      <section className="my-2 text-black w-full">
+        <div>
+          <p className="text-l font-semibold mb-4 mt-10 text-left">Fazer Check-in:</p>
+          <div className="flex items-center justify-around">
+              <ContainedButton
+                onClick={() => {}}
+                width={'43vw'}
+                height={'5rem'}
+              >
+                <FaIdCard size={24}/>
+                Digitar ID da Bike
+              </ContainedButton>
+              <ContainedButton
+                onClick={() => {}}
+                width={'43vw'}
+                height={'5rem'}
+              >
+                <FaQrcode size={24} />
+                Scanear QR Code
+              </ContainedButton>
+            </div>
         </div>
-
-        <div className="tags text-black overflow-hidden">
-          <ul className="flex mt-2 gap-3 w-full overflow-x-scroll whitespace-nowrap text-[12px]">
-
-            <FilterPill text="Favoritos" icon={<CiHeart color="black" />} />
-            <FilterPill text="Histórico" icon={<CiClock2 color="black" />} />
-            <FilterPill text="Pendências" icon={<FaCheck color="black" />} />
-            <FilterPill text="Favoritos" icon={<CiHeart color="black" />} />
-            
-          </ul>
+        <div>
+          <p className="text-l font-semibold mb-4 mt-10 text-left">Bikes perto de você:</p>
+          <Mapa width={'100%'} height={'70vh'}/>
         </div>
       </section>
 
