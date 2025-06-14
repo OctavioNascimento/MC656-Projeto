@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import { useState } from "react";
 import Header, { headerIconsSize } from "../components/Header";
 import Button from "../components/Button";
+import { Alert, Backdrop, CircularProgress, Snackbar } from "@mui/material";
 
 function UserPage() {
   const navigate = useNavigate()
@@ -18,6 +19,27 @@ function UserPage() {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+
+  const [successSnackBar, setSuccessSnackBar] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleCloseSnack = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setSuccessSnackBar(false);
+  };
+
+  const onClickButton = () => {
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+      window.scrollTo({ top: 0 });
+      setSuccessSnackBar(true);
+    }, 1000); // 1 segundo
+  };
 
   return (
     <div className="h-full flex flex-col items-center relative">
@@ -77,10 +99,7 @@ function UserPage() {
         <div className="flex items-center justify-center m-10">
           <Button
             value="Salvar alterações"
-            onClick={(e) => {
-              e.preventDefault();
-              navigate('/home');
-              }}
+            onClick={onClickButton}
             className="
           border p-2 w-70 rounded-md 
           bg-cyan-600 hover:bg-cyan-700 
@@ -173,6 +192,21 @@ function UserPage() {
           </div>
         </div>
       </section>
+
+      <Backdrop open={loading} style={{ zIndex: 1300, color: '#fff' }}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
+
+      <Snackbar open={successSnackBar} autoHideDuration={2000} onClose={handleCloseSnack}>
+        <Alert
+          onClose={handleCloseSnack}
+          severity="success"
+          variant="filled"
+          sx={{ width: '100%' }}
+        >
+          Alterações salvas com sucesso!
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
