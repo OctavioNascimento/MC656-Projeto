@@ -5,8 +5,8 @@ import { getDurationInMinutes, userInfo } from "../mocks/mocks";
 import TextField from '@mui/material/TextField';
 import { useState } from "react";
 import Header, { headerIconsSize } from "../components/Header";
-import Button from "../components/Button";
 import { Alert, Backdrop, CircularProgress, Snackbar } from "@mui/material";
+import ContainedButton from "../components/Button";
 
 function UserPage() {
   const navigate = useNavigate()
@@ -97,14 +97,11 @@ function UserPage() {
         </div>
 
         <div className="flex items-center justify-center m-10">
-          <Button
-            value="Salvar alterações"
+          <ContainedButton
             onClick={onClickButton}
-            className="
-          border p-2 w-70 rounded-md 
-          bg-cyan-600 hover:bg-cyan-700 
-          font-bold hover:cursor-pointer active:bg-cyan-700 items-center text-white"
-          />
+          >
+            Salvar alterações
+          </ContainedButton>
         </div>
       </section>
 
@@ -174,21 +171,23 @@ function UserPage() {
             </div>
           }
           <div className="flex justify-between items-center mt-6">
-            <button
+            <ContainedButton
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
-              className="px-3 py-1 bg-blue-500 text-white rounded disabled:opacity-50"
+              width={'100px'}
+              height={'40px'}
             >
             Anterior
-            </button>
+            </ContainedButton>
             <span>Página {currentPage} de {totalPages}</span>
-            <button
+            <ContainedButton
               onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
               disabled={currentPage === totalPages}
-              className="px-3 py-1 bg-blue-500 text-white rounded disabled:opacity-50"
+              width={'100px'}
+              height={'40px'}
             >
             Próxima
-            </button>
+            </ContainedButton>
           </div>
         </div>
       </section>
