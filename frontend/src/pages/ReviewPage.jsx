@@ -2,10 +2,9 @@ import { RiArrowLeftLine } from "react-icons/ri";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import { getDurationInMinutes, getTravelById } from "../mocks/mocks";
 import Header, { headerIconsSize } from "../components/Header";
-import { FaUserCircle } from "react-icons/fa";
-import { Box, Rating, TextField, Typography } from "@mui/material";
-import Button from "../components/Button";
+import { Alert, Backdrop, Box, CircularProgress, Rating, Snackbar, TextField, Typography } from "@mui/material";
 import { useState } from "react";
+import ContainedButton from "../components/Button";
 
 function ReviewPage() {
   const navigate = useNavigate()
@@ -15,7 +14,28 @@ function ReviewPage() {
   const [travelRate, setTravelRate] = useState(0);
   const [bikeRate, setBikeRate] = useState(0);
   const [comment, setComment] = useState('');
-  
+
+  const [successSnackBar, setSuccessSnackBar] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleCloseSnack = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setSuccessSnackBar(false);
+  };
+
+  const onClickButton = () => {
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+      window.scrollTo({ top: 0 });
+      setSuccessSnackBar(true);
+    }, 1000); // 1 segundo
+  };
+
   return (
     <div className="h-full flex flex-col items-center relative">
       <Header 
@@ -94,23 +114,32 @@ function ReviewPage() {
             </div>
             
             <div className="flex items-center justify-center m-10">
-              <Button
-                value="Enviar avaliação"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate('/home');
-                  }}
-                className="
-              border p-2 w-70 rounded-md 
-              bg-cyan-600 hover:bg-cyan-700 
-              font-bold hover:cursor-pointer active:bg-cyan-700 items-center text-white"
-              />
+              <ContainedButton
+                onClick={onClickButton}
+              >
+                Enviar avaliação
+              </ContainedButton>
             </div>
           </>
           : <></>
         }
         
       </section>
+
+      <Backdrop open={loading} style={{ zIndex: 1300, color: '#fff' }}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
+
+      <Snackbar open={successSnackBar} autoHideDuration={2000} onClose={handleCloseSnack}>
+        <Alert
+          onClose={handleCloseSnack}
+          severity="success"
+          variant="filled"
+          sx={{ width: '100%' }}
+        >
+          Avaliação enviada com sucesso!
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
